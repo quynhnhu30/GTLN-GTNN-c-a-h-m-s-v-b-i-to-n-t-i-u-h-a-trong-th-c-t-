@@ -1,0 +1,881 @@
+\documentclass[12pt,a4paper]{article}
+
+% ========================================================
+% TIẾNG VIỆT VÀ MÃ HÓA (DÙNG CHUNG MỘT PREAMBLE)
+% ========================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+
+% ========================================================
+% TOÁN HỌC VÀ TIỆN ÍCH
+% ========================================================
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{url}
+
+% ========================================================
+% KHỔ GIẤY VÀ LỀ
+% ========================================================
+\usepackage[
+    a4paper,
+    left=3cm,
+    right=2cm,
+    top=2.5cm,
+    bottom=2.5cm
+]{geometry}
+
+% ========================================================
+% GIÃN DÒNG VÀ THỤT ĐẦU DÒNG
+% ========================================================
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% ========================================================
+% ĐÁNH SỐ TRANG VÀ TIÊU ĐỀ
+% ========================================================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ========================================================
+% BẮT ĐẦU TÀI LIỆU
+% ========================================================
+\begin{document}
+
+% ========================================================
+% TRANG LỜI CẢM ƠN
+% ========================================================
+\begin{center}
+{\Large\bfseries LỜI CẢM ƠN}
+\end{center}
+
+\vspace{0.5cm}
+
+Để hoàn thành dự án  này, bên cạnh sự nỗ lực của bản thân, em đã nhận được rất nhiều sự quan tâm, hướng dẫn và động viên quý báu từ quý thầy cô, gia đình và bạn bè.
+
+Trước hết, em xin bày tỏ lòng biết ơn sâu sắc và kính trọng nhất đến thầy \textbf{Nguyễn Đăng Minh Phúc}. Trong suốt quá trình thực hiện đề tài từ những bước định hình tư tưởng ban đầu, xây dựng mô hình toán học cho đến khi hoàn thiện nội dung, em luôn nhận được sự chỉ bảo tận tình, chu đáo và những định hướng khoa học vô cùng sắc sảo từ Thầy. Sự hướng dẫn nghiêm túc, khoa học nhưng cũng đầy tâm huyết của Thầy không chỉ giúp em tháo gỡ những vướng mắc chuyên môn mà còn là bài học quý giá về tư duy logic, phương pháp nghiên cứu và thái độ làm việc nghiêm túc của một người làm khoa học.
+
+Em cũng xin gửi lời cảm ơn chân thành đến quý thầy cô tại Khoa Toán, những người đã truyền đạt cho em nền tảng kiến thức chuyên môn vững chắc .
+
+Dù đã có nhiều cố gắng trong quá trình nghiên cứu và biên soạn, song do những giới hạn về mặt thời gian và tầm nhìn khoa học, dự án chắc chắn không tránh khỏi những thiếu sót nhất định. Em rất mong nhận được những ý kiến đóng góp quý báu từ quý thầy cô để đề tài được hoàn thiện hơn.
+
+Cuối cùng, em xin kính chúc thầy \textbf{Nguyễn Đăng Minh Phúc} luôn dồi dào sức khỏe, hạnh phúc và gặt hái được nhiều thắng lợi hơn nữa trong sự nghiệp trồng người cũng như trong các nghiên cứu khoa học.
+
+Em xin chân thành cảm ơn Thầy!
+
+\vspace{1cm}
+\begin{flushright}
+
+\end{flushright}
+
+\newpage
+
+% ========================================================
+% PHẦN MỞ ĐẦU VÀ CÁC THÔNG TIN NGHIÊN CỨU
+% ========================================================
+\begin{center}
+{\Large\bfseries LỜI MỞ ĐẦU}
+\end{center}
+
+\vspace{0.3cm}
+
+Trong toán học và đời sống thực tiễn, bài toán tìm giá trị lớn nhất và giá trị nhỏ nhất (GTLN - GTNN) của hàm số đóng một vai trò vô cùng quan trọng. Chúng xuất hiện xuyên suốt trong chương trình Toán học phổ thông cũng như trong các bài toán tối ưu hóa kinh tế, kỹ thuật, hình học và đời sống. Việc ứng dụng đạo hàm và các phương pháp giải tích để giải quyết các bài toán tối ưu thực tế không chỉ giúp học sinh rèn luyện tư duy logic, kỹ năng mô hình hóa toán học mà còn thấy được tính thực tiễn sinh động của bộ môn Toán. 
+
+Xuất phát từ tầm quan trọng đó, chuyên đề ``Các dạng bài tập giá trị lớn nhất và giá trị nhỏ nhất của hàm số - Ứng dụng bài toán thực tế'' được chọn làm đề tài nghiên cứu nhằm hệ thống hóa lý thuyết, phân loại các dạng toán và cung cấp phương pháp giải chi tiết cho các bài toán tối ưu hóa thực tiễn.
+
+\vspace{0.5cm}
+
+\section*{1. Mục tiêu nghiên cứu}
+\begin{itemize}
+    \item Về lý thuyết: Hệ thống hóa các kiến thức cơ bản và nâng cao về giá trị lớn nhất, giá trị nhỏ nhất của hàm số, định lý Weierstrass, cũng như các phương pháp giải (sử dụng tính đơn điệu, bảng biến thiên, đạo hàm và bất đẳng thức).
+    \item Về thực tiễn: Xây dựng quy trình mô hình hóa toán học từ các bài toán thực tiễn (kinh tế, hình học, vật lý, nông nghiệp) về dạng bài toán tìm GTLN - GTNN của hàm số một biến.
+    \item Về kỹ năng\textbf{:} Rèn luyện cho học sinh tư duy giải quyết vấn đề, kỹ năng lập luận và giải các dạng bài toán vận dụng cao, bài toán đúng/sai và trả lời ngắn trong các kỳ thi.
+\end{itemize}
+
+\section*{2. Đối tượng nghiên cứu}
+\begin{itemize}
+    \item Lý thuyết về giá trị lớn nhất và giá trị nhỏ nhất của hàm số chương trình Toán lớp 12.
+    \item Các bài toán thực tế, bài toán tối ưu hóa liên quan đến GTLN - GTNN được tổng hợp từ các tài liệu chuyên đề, sách giáo khoa Kết nối tri thức với cuộc sống và các nguồn tài liệu toán học uy tín.
+\end{itemize}
+
+\section*{3. Phạm vi nghiên cứu}
+\begin{itemize}
+    \item Nội dung: Tập trung vào chuyên đề giá trị lớn nhất, giá trị nhỏ nhất của hàm số và các ứng dụng thực tế của đạo hàm lớp 12.
+    \item Không gian\textbf{:} Các bài toán ứng dụng tối ưu hóa trong hình học không gian, chi phí sản xuất, lợi nhuận kinh tế và chuyển động vật lý cơ bản.
+\end{itemize}
+
+\section*{4. Thời gian nghiên cứu}
+\begin{itemize}
+    \item Đề tài được triển khai, nghiên cứu và hoàn thiện trong khoảng thời gian: 2 tuần.
+\end{itemize}
+
+\newpage
+
+% ========================================================
+% MỤC LỤC
+% ========================================================
+\tableofcontents
+\newpage
+
+% ========================================================
+% CHƯƠNG 1
+% ========================================================
+\begin{center}
+{\Large\bfseries CHƯƠNG 1}
+
+\vspace{0.4cm}
+
+{\Large\bfseries CƠ SỞ LÝ THUYẾT VỀ GIÁ TRỊ LỚN NHẤT}
+
+\vspace{0.2cm}
+
+{\Large\bfseries VÀ GIÁ TRỊ NHỎ NHẤT CỦA HÀM SỐ}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Khái niệm hàm số và ý nghĩa thực tiễn}
+
+\subsection{Khái niệm hàm số}
+Trong Toán học, hàm số là một trong những khái niệm cơ bản, được sử dụng để mô tả sự phụ thuộc của một đại lượng vào một đại lượng khác.
+
+Cho tập $D\subset\mathbb{R}$. Một hàm số $f$ xác định trên $D$ là một quy tắc đặt tương ứng mỗi số $x\in D$ với duy nhất một số thực $f(x)$.
+
+Ta viết
+\[
+f:D\rightarrow\mathbb{R}.
+\]
+
+Trong đó:
+\begin{itemize}
+    \item $D$ được gọi là tập xác định của hàm số;
+    \item $x$ được gọi là biến số hoặc biến độc lập;
+    \item $f(x)$ được gọi là giá trị của hàm số tại $x$;
+    \item tập hợp các giá trị $f(x)$ khi $x$ thay đổi trong $D$ được gọi là tập giá trị của hàm số.
+\end{itemize}
+
+Hàm số có thể được biểu diễn bằng nhiều cách khác nhau, chẳng hạn bằng công thức, bảng số liệu, đồ thị hoặc bằng một quy tắc mô tả mối quan hệ giữa các đại lượng.
+
+Ví dụ, xét hàm số
+\[
+f(x)=x^2-2x+3.
+\]
+Với mỗi $x\in\mathbb{R}$, hàm số xác định duy nhất một giá trị $f(x)$.
+
+\subsection{Ý nghĩa của hàm số trong thực tế}
+Trong thực tế, nhiều đại lượng không tồn tại độc lập mà có sự phụ thuộc lẫn nhau. Khi một đại lượng thay đổi thì đại lượng khác cũng thay đổi theo một quy luật nhất định. Hàm số là công cụ toán học giúp biểu diễn và nghiên cứu sự phụ thuộc đó.
+
+Chẳng hạn:
+\begin{itemize}
+    \item Quãng đường $s$ phụ thuộc vào thời gian $t$;
+    \item Chi phí sản xuất $C$ phụ thuộc vào số lượng sản phẩm $x$;
+    \item Doanh thu $R$ phụ thuộc vào giá bán hoặc số lượng sản phẩm;
+    \item Diện tích $S$ phụ thuộc vào chiều dài và chiều rộng;
+    \item Thể tích $V$ phụ thuộc vào các kích thước của vật thể;
+    \item Độ cao $h$ của vật chuyển động phụ thuộc vào thời gian $t$.
+\end{itemize}
+
+Có thể biểu diễn khái quát
+\[
+y=f(x),
+\]
+trong đó $x$ là đại lượng đầu vào và $y$ là đại lượng phụ thuộc.
+
+Việc xây dựng hàm số từ một tình huống thực tế là một bước quan trọng của mô hình hóa toán học. Khi đã có mô hình hàm số, chúng ta có thể sử dụng các công cụ toán học để nghiên cứu sự thay đổi và tìm ra phương án phù hợp nhất.
+
+Đặc biệt, khi cần tìm phương án lớn nhất, nhỏ nhất, hiệu quả nhất, tiết kiệm nhất hoặc có lợi nhuận cao nhất, bài toán thường được đưa về việc tìm giá trị lớn nhất hoặc giá trị nhỏ nhất của một hàm số.
+
+\section{Giá trị lớn nhất của hàm số}
+
+\subsection{Định nghĩa}
+Cho hàm số $f(x)$ xác định trên tập $D$.
+
+Số $M$ được gọi là giá trị lớn nhất của hàm số $f$ trên $D$ nếu thỏa mãn đồng thời hai điều kiện:
+\[
+f(x)\leq M,\qquad \forall x\in D
+\]
+và tồn tại ít nhất một $x_0\in D$ sao cho
+\[
+f(x_0)=M.
+\]
+
+Khi đó, ta viết
+\[
+\boxed{\max_{x\in D}f(x)=M.}
+\]
+
+Điểm $x_0$ được gọi là điểm đạt giá trị lớn nhất của hàm số trên $D$.
+
+\subsection{Phân tích định nghĩa}
+Định nghĩa trên bao gồm hai nội dung quan trọng.
+
+Thứ nhất, $M$ phải là một giá trị lớn hơn hoặc bằng tất cả các giá trị khác của hàm số:
+\[
+f(x)\leq M.
+\]
+
+Thứ hai, hàm số phải thực sự đạt tới giá trị $M$:
+\[
+f(x_0)=M.
+\]
+
+Điều kiện thứ hai rất quan trọng. Nếu một hàm số chỉ tiến gần đến một giá trị nào đó nhưng không bao giờ đạt được giá trị đó thì giá trị ấy không phải là giá trị lớn nhất.
+
+\subsubsection*{Ví dụ}
+Xét hàm số
+\[
+f(x)=x,\qquad x\in[0;3].
+\]
+Ta có
+\[
+f(x)\leq3,\qquad \forall x\in[0;3],
+\]
+và
+\[
+f(3)=3.
+\]
+Vì vậy,
+\[
+\boxed{\max_{[0;3]}f(x)=3.}
+\]
+
+\section{Giá trị nhỏ nhất của hàm số}
+
+\subsection{Định nghĩa}
+Cho hàm số $f(x)$ xác định trên tập $D$.
+
+Số $m$ được gọi là giá trị nhỏ nhất của hàm số $f$ trên $D$ nếu
+\[
+f(x)\geq m,\qquad \forall x\in D
+\]
+và tồn tại $x_0\in D$ sao cho
+\[
+f(x_0)=m.
+\]
+
+Khi đó,
+\[
+\boxed{\min_{x\in D}f(x)=m.}
+\]
+Điểm $x_0$ được gọi là điểm đạt giá trị nhỏ nhất.
+
+\subsubsection*{Ví dụ}
+Xét hàm số
+\[
+f(x)=x^2,\qquad x\in[-2;3].
+\]
+Với mọi $x\in[-2;3]$,
+\[
+x^2\geq0.
+\]
+Đồng thời,
+\[
+f(0)=0.
+\]
+Do đó,
+\[
+\boxed{\min_{[-2;3]}f(x)=0.}
+\]
+
+\section{Phân biệt GTLN, GTNN với cực trị}
+Đây là nội dung quan trọng vì học sinh rất dễ đồng nhất hai khái niệm.
+
+\subsection{Cực đại và cực tiểu}
+Một điểm $x_0$ được gọi là điểm cực đại của hàm số nếu tồn tại một khoảng lân cận của $x_0$ sao cho
+\[
+f(x)\leq f(x_0)
+\]
+với mọi $x$ thuộc khoảng đó.
+
+Tương tự, $x_0$ là điểm cực tiểu nếu
+\[
+f(x)\geq f(x_0)
+\]
+trong một lân cận của $x_0$.
+
+Như vậy, cực trị chỉ xét sự lớn hơn hoặc nhỏ hơn trong một vùng lân cận, trong khi GTLN và GTNN xét trên toàn bộ miền đang xét.
+
+\subsubsection*{Ví dụ}
+Xét hàm số
+\[
+f(x)=x^3-3x.
+\]
+Ta có
+\[
+f'(x)=3x^2-3=3(x-1)(x+1).
+\]
+Hàm số có hai điểm cực trị.
+
+Tuy nhiên, trên $\mathbb{R}$, hàm số không có GTLN và GTNN vì
+\[
+\lim_{x\to+\infty}f(x)=+\infty
+\]
+và
+\[
+\lim_{x\to-\infty}f(x)=-\infty.
+\]
+
+Điều này cho thấy:
+\begin{quote}
+Có cực trị không có nghĩa là hàm số có GTLN hoặc GTNN trên toàn bộ tập xác định.
+\end{quote}
+
+\section{Điều kiện tồn tại GTLN, GTNN}
+Một câu hỏi quan trọng trong bài toán cực trị là: Khi nào hàm số chắc chắn có GTLN và GTNN? Một kết quả nền tảng được sử dụng là định lý Weierstrass.
+\subsection{Định lý Weierstrass}
+\textbf{Định lý.} Nếu hàm số $f$ liên tục trên đoạn đóng $[a;b]$ thì $f$ đạt GTLN và GTNN trên đoạn đó.
+
+Nói cách khác, tồn tại $x_1,x_2\in[a;b]$ sao cho
+\[
+f(x_1)\leq f(x)\leq f(x_2),
+\qquad \forall x\in[a;b].
+\]
+
+Khi đó,
+\[
+\min_{[a;b]}f(x)=f(x_1),\qquad \max_{[a;b]}f(x)=f(x_2).
+\]
+Định lý này là cơ sở lý thuyết quan trọng cho phương pháp tìm GTLN, GTNN của hàm số liên tục trên một đoạn.
+
+\subsection{Ý nghĩa của định lý}
+Trong nhiều bài toán phổ thông, đề bài yêu cầu tìm GTLN, GTNN của hàm số $f(x)$ trên đoạn $[a;b]$. Nếu $f$ liên tục trên $[a;b]$, ta biết trước rằng GTLN và GTNN chắc chắn tồn tại. Do đó, nhiệm vụ của người giải là tìm các điểm có khả năng đạt giá trị lớn nhất hoặc nhỏ nhất, sau đó so sánh các giá trị tương ứng.
+
+\section{Các điểm cần xét khi tìm GTLN, GTNN trên đoạn}
+Cho hàm số $f(x)$ liên tục trên đoạn $[a;b]$. Để tìm GTLN và GTNN, cần xét:
+\begin{enumerate}
+    \item Hai đầu mút: $x=a,\quad x=b$.
+    \item Các điểm tới hạn nằm trong khoảng $(a;b)$, thường là nghiệm của: $f'(x)=0$.
+    \item Những điểm thuộc miền xác định mà tại đó $f'(x)$ không tồn tại, nếu có.
+\end{enumerate}
+Sau đó tính các giá trị $f(a),\quad f(b),\quad f(x_1),\quad f(x_2),\ldots$ và so sánh. Giá trị lớn nhất trong số đó là GTLN, giá trị nhỏ nhất là GTNN.
+
+\section{Phương pháp sử dụng tính đơn điệu}
+\subsection{Hàm số đồng biến}
+Nếu $f(x)$ đồng biến trên $[a;b]$, thì $f(a)\leq f(x)\leq f(b)$. Do đó:
+\[
+\boxed{\min_{[a;b]}f(x)=f(a)} \quad \text{và} \quad \boxed{\max_{[a;b]}f(x)=f(b).}
+\]
+
+\subsection{Hàm số nghịch biến}
+Nếu $f(x)$ nghịch biến trên $[a;b]$, thì $f(a)\geq f(x)\geq f(b)$. Do đó:
+\[
+\boxed{\max_{[a;b]}f(x)=f(a)} \quad \text{và} \quad \boxed{\min_{[a;b]}f(x)=f(b).}
+\]
+
+\section{Phương pháp sử dụng đạo hàm}
+Giả sử cần tìm GTLN, GTNN của hàm số $f(x)$ trên đoạn $[a;b]$:
+\begin{itemize}
+    \item \textbf{Bước 1.} Xác định tập xác định và miền xét.
+    \item \textbf{Bước 2.} Tính đạo hàm $f'(x)$.
+    \item \textbf{Bước 3.} Tìm các điểm tới hạn giải phương trình $f'(x)=0$.
+    \item \textbf{Bước 4.} Lập bảng biến thiên xác định các khoảng đơn điệu.
+    \item \textbf{Bước 5.} Tính giá trị tại các điểm cần xét $f(a), f(b)$ và các điểm tới hạn.
+    \item \textbf{Bước 6.} So sánh để tìm GTLN và GTNN.
+\end{itemize}
+
+\section{Ví dụ tổng hợp về tìm GTLN, GTNN}
+Xét hàm số $f(x)=x^3-3x+1$ trên đoạn $[-2;2]$.
+Ta có $f'(x)=3x^2-3=3(x-1)(x+1)$. Suy ra $f'(x)=0$ khi $x=-1,\quad x=1$.
+Tính giá trị tại các điểm:
+\[
+f(-2)=-1,\quad f(-1)=3,\quad f(1)=-1,\quad f(2)=3.
+\]
+So sánh các giá trị, suy ra:
+\[
+\boxed{\max_{[-2;2]}f(x)=3} \quad \text{và} \quad \boxed{\min_{[-2;2]}f(x)=-1.}
+\]
+
+\section{Phương pháp sử dụng bảng biến thiên}
+Bảng biến thiên giúp tổng hợp thông tin về sự biến thiên, khoảng đồng biến, nghịch biến, cực trị và xu hướng của hàm số. Qua đó giúp trả lời câu hỏi liệu giá trị tìm được là tối ưu toàn cục hay chỉ là cực trị địa phương.
+
+\section{Phương pháp biến đổi đại số}
+Ví dụ với $f(x)=x^2-4x+7 = (x-2)^2+3 \geq 3$. Dấu bằng xảy ra khi $x=2$. Do đó $\min_{\mathbb{R}}f(x)=3$. Cách này ngắn gọn hơn đạo hàm trong một số trường hợp.
+
+\section{Một số bất đẳng thức thường dùng}
+\begin{itemize}
+    \item \textbf{Dạng 1 (Bình phương không âm):} $(x-a)^2\geq0$.
+    \item \textbf{Dạng 2 (Tổng bình phương):} $x^2+y^2\geq0$.
+    \item \textbf{Dạng 3 (AM-GM):} Với $a,b>0$, $\frac{a+b}{2}\geq\sqrt{ab}$.
+    \item \textbf{Dạng 4 (Cauchy--Schwarz):} Đánh giá biểu thức nhiều biến.
+\end{itemize}
+
+\section{GTLN, GTNN của hàm số và bài toán tối ưu hóa}
+GTLN và GTNN là nền tảng toán học của tối ưu hóa thực tế:
+\[
+\text{Các điều kiện thực tế} \longrightarrow \text{Đại lượng cần tối ưu} \longrightarrow \text{Hàm số} \longrightarrow \text{GTLN/GTNN}.
+\]
+Ứng dụng trong sản xuất ($\min C(x)$), kinh doanh ($\max R(x)$), thiết kế ($\max S(x)$).
+
+\section{Vai trò của miền xác định trong bài toán tối ưu}
+Miền xác định của hàm số trong bài toán thực tế chính là miền khả thi của bài toán tối ưu (ví dụ chiều dài $x>0$, sản phẩm $x\geq 0$). Không thể tìm GTLN/GTNN mà bỏ qua ý nghĩa của biến.
+
+\section{Những lưu ý quan trọng khi giải bài toán GTLN, GTNN}
+\begin{enumerate}
+    \item Phải xác định đúng miền xét, không bỏ qua điều kiện của biến.
+    \item Phải phân biệt cực trị và GTLN, GTNN.
+    \item Với đoạn đóng phải xét hai đầu mút $f(a), f(b)$.
+    \item Kiểm tra điều kiện nghiệm thuộc miền đang xét.
+    \item Trả lời đúng câu hỏi thực tế.
+\end{enumerate}
+
+\section{Tiểu kết chương 1}
+Chương này đã trình bày cơ sở lý thuyết, định lý Weierstrass, phân biệt cực trị với GTLN/GTNN và vai trò của miền xác định.
+\[
+\boxed{
+\begin{array}{c}
+\text{Hàm số}\\[0.2cm]
+\downarrow\\[0.2cm]
+\text{Tính đơn điệu, đạo hàm}\\[0.2cm]
+\downarrow\\[0.2cm]
+\text{Cực trị}\\[0.2cm]
+\downarrow\\[0.2cm]
+\text{GTLN, GTNN}\\[0.2cm]
+\downarrow\\[0.2cm]
+\text{Bài toán tối ưu hóa thực tế}
+\end{array}
+}
+\]
+
+\vspace{0.5cm}
+\begin{center}
+\textbf{--- HẾT CHƯƠNG 1 ---}
+\end{center}
+\newpage
+
+% ========================================================
+% CHƯƠNG 2
+% ========================================================
+\begin{center}
+{\Large\bfseries CHƯƠNG 2}
+
+\vspace{0.4cm}
+
+{\Large\bfseries BÀI TOÁN TỐI ƯU HÓA TRONG THỰC TIỄN:}
+
+\vspace{0.2cm}
+
+{\Large\bfseries BẢN CHẤT, MÔ HÌNH HÓA VÀ CÔNG CỤ GIẢI TÍCH}
+\end{center}
+
+\vspace{0.5cm}
+
+Trong thực tiễn, con người luôn phải lựa chọn phương án phù hợp nhằm đạt hiệu quả cao nhất với nguồn lực cho trước. Về mặt toán học, đây là các bài toán tối ưu hóa.
+
+\section{Bản chất của bài toán tối ưu hóa}
+Cho $D$ là miền khả thi và $f:D\rightarrow\mathbb{R}$ là hàm mục tiêu. Bài toán tối ưu hóa là tìm GTLN hoặc GTNN của hàm mục tiêu trên miền $D$:
+\[
+\boxed{
+\max_{x\in D}f(x)
+\quad\text{hoặc}\quad
+\min_{x\in D}f(x)
+}
+\]
+
+\section{Quy trình giải bài toán tối ưu}
+\begin{enumerate}
+    \item Xác định đại lượng cần tối ưu.
+    \item Chọn biến và xác định điều kiện của biến.
+    \item Thiết lập hàm mục tiêu.
+    \item Tìm GTLN hoặc GTNN của hàm số.
+    \item Kiểm tra và diễn giải kết quả theo ý nghĩa thực tế.
+\end{enumerate}
+
+\section{Một số dạng bài toán tối ưu}
+\subsection{Tối ưu hình học}
+Yêu cầu tìm diện tích, chu vi hoặc thể tích lớn nhất, nhỏ nhất.
+\subsection{Tối ưu trong kinh tế}
+Lợi nhuận được xác định bởi $P(x)=R(x)-C(x)$, bài toán tìm lợi nhuận lớn nhất trở thành $\max P(x)$.
+\subsection{Tối ưu trong chuyển động}
+Các đại lượng quãng đường, độ cao, vận tốc, thời gian được biểu diễn bởi hàm số để tìm cực trị.
+
+\section{Những sai lầm thường gặp}
+\begin{enumerate}
+    \item Xác định sai miền khả thi.
+    \item Thiết lập sai hàm mục tiêu.
+    \item Chỉ giải $f'(x)=0$ mà không kiểm tra điều kiện cực trị.
+    \item Quên xét các đầu mút khi tìm GTLN, GTNN trên một đoạn.
+    \item Không kiểm tra ý nghĩa thực tế của nghiệm.
+\end{enumerate}
+
+\section*{Tiểu kết chương 2}
+\addcontentsline{toc}{section}{Tiểu kết chương 2}
+Chương 2 đã trình bày khái niệm, cấu trúc và quy trình giải bài toán tối ưu hóa trong thực tiễn.
+
+\vspace{1cm}
+
+% ========================================================
+% CÁC MỤC MỞ RỘNG (2.1 ĐẾN 2.10)
+% ========================================================
+\section*{CHƯƠNG 2 (MỞ RỘNG). ỨNG DỤNG GTLN, GTNN TRONG CÁC BÀI TOÁN THỰC TẾ}
+\addcontentsline{toc}{section}{CHƯƠNG 2 (MỞ RỘNG). ỨNG DỤNG GTLN, GTNN TRONG CÁC BÀI TOÁN THỰC TẾ}
+
+Chương này hệ thống hóa các phương pháp thiết lập hàm số một biến hoặc nhiều biến để tìm giá trị lớn nhất (GTLN) và giá trị nhỏ nhất (GTNN), giải quyết các bài toán tối ưu hóa thực tế trong nhiều lĩnh vực khác nhau.
+
+\subsection*{2.1. Tối ưu diện tích hình học}
+Các bài toán tối ưu diện tích hình học xuất hiện phổ biến trong quy hoạch đất đai, xây dựng và nông nghiệp, nơi người ta cần tìm kích thước của các hình để đạt diện tích lớn nhất hoặc chu vi nhỏ nhất dưới các ràng buộc vật lý cố định.
+\begin{itemize}
+    \item Bản chất toán học: Bài toán tìm cực trị của hàm số bậc hai một biến trên tập xác định bị chặn bởi điều kiện hình học.
+    \item Quy trình phân tích chi tiết\textbf{:}
+    \begin{enumerate}
+        \item Chọn ẩn và xác định miền giá trị: Đặt kích thước chưa biết là $x$, biểu diễn các kích thước còn lại theo $x$ và suy ra điều kiện của $x$.
+        \item Thiết lập hàm mục tiêu: Xây dựng hàm diện tích $S(x)$ dạng đa thức bậc hai.
+        \item Khảo sát và kết luận: Tìm nghiệm $S'(x) = 0$ và dùng bảng biến thiên để xác định GTLN tuyệt đối.
+    \end{enumerate}
+    \item Ý nghĩa thực tiễn: Tối ưu hóa không gian sử dụng, tiết kiệm nguyên vật liệu rào chắn.
+\end{itemize}
+
+\subsection*{2.2. Bài toán thiết kế hộp không nắp}
+Bài toán kinh điển mô phỏng quá trình sản xuất thùng chứa từ các tấm vật liệu phẳng bằng cách cắt góc vuông.
+\begin{itemize}
+    \item Mô hình toán học chi tiết:
+    \begin{itemize}
+        \item Tấm bìa chữ nhật kích thước $a \times b$, cắt 4 góc bốn hình vuông cạnh $x$.
+        \item Kích thước hộp: Cao $x$, dài $a - 2x$, rộng $b - 2x$.
+        \item Hàm thể tích:
+        \begin{equation}
+            V(x) = x(a - 2x)(b - 2x) = 4x^3 - 2(a + b)x^2 + abx
+        \end{equation}
+        \item Miền xác định: $0 < x < \min\left(\frac{a}{2}, \frac{b}{2}\right)$.
+    \end{itemize}
+    \item Kỹ thuật giải quyết: Tính $V'(x) = 12x^2 - 4(a + b)x + ab = 0$ để tìm điểm cực đại.
+    \item Ý nghĩa thực tiễn\textbf{:} Tối ưu hóa khả năng chứa đựng của thùng hàng, giảm không gian vận chuyển.
+\end{itemize}
+
+\subsection*{2.3. Bài toán tối ưu chi phí sản xuất}
+Kiểm soát chi phí là chìa khóa duy trì năng lực cạnh tranh dưới sự chi phối của quy suất sinh lợi giảm dần.
+\begin{itemize}
+    \item  Hàm chi phí tổng cộng ($C$):
+    \begin{equation}
+        C(x) = FC + VC(x)
+    \end{equation}
+    với $FC$ là chi phí cố định và $VC(x)$ là chi phí biến đổi theo sản lượng $x$.
+    \item Bài toán tối ưu chi phí trung bình ($AC$):
+    \begin{itemize}
+        \item $AC(x) = \frac{C(x)}{x}$.
+        \item Khảo sát đạo hàm:
+        \begin{equation}
+            AC'(x) = \frac{C'(x) \cdot x - C(x)}{x^2} = 0 \iff C'(x) = \frac{C(x)}{x}
+        \end{equation}
+    \end{itemize}
+    \item Ý nghĩa kinh tế: Điểm tối ưu chi phí trung bình xảy ra khi chi phí biên bằng chi phí trung bình ($MC = AC$).
+\end{itemize}
+
+\subsection*{2.4. Bài toán tối đa hóa lợi nhuận}
+Lợi nhuận là mục tiêu tối thượng, kết hợp giữa hàm doanh thu và chi phí.
+\begin{itemize}
+    \item Thiết lập mô hình tổng quát:
+    \begin{itemize}
+        \item Hàm cầu $p = p(x)$.
+        \item Tổng doanh thu: $R(x) = x \cdot p(x)$.
+        \item Lợi nhuận: $\pi(x) = R(x) - C(x)$.
+    \end{itemize}
+    \item Điều kiện tối ưu:
+    \begin{equation}
+        \pi'(x) = R'(x) - C'(x) = 0 \iff R'(x) = C'(x)
+    \end{equation}
+    với $R'(x)$ là Doanh thu biên ($MR$) và $C'(x)$ là Chi phí biên ($MC$).
+\end{itemize}
+
+\subsection*{2.5. Bài toán tối ưu vận chuyển}
+Giải quyết tình huống di chuyển phức tạp kết hợp nhiều loại địa hình hoặc vận tốc.
+\begin{itemize}
+    \item Mô hình thời gian:
+    \begin{equation}
+        T(x) = \frac{\sqrt{a^2 + x^2}}{v_1} + \frac{b - x}{v_2}
+    \end{equation}
+    \item Liên hệ vật lý: Giải $T'(x) = 0$ cho ra phương trình trùng khớp với Định luật khúc xạ ánh sáng (Snell's Law).
+    \item Ý nghĩa thực tiễn\textbf{:} Thiết kế hạ tầng mạng, đường ống dẫn dầu, logistics.
+\end{itemize}
+
+\subsection*{2.6. Bài toán tối ưu vật liệu}
+Sản xuất vật chứa thể tích cố định nhằm tối thiểu hóa diện tích bề mặt để tiết kiệm nguyên liệu.
+\begin{itemize}
+    \item Phân tích lon nước hình trụ: Thể tích cố định $V = \pi R^2 h$. Diện tích toàn phần:
+    \begin{equation}
+        S(R) = 2\pi R^2 + 2\pi R h = 2\pi R^2 + \frac{2V}{R}
+    \end{equation}
+    \item Khảo sát: $S'(R) = 4\pi R - \frac{2V}{R^2} = 0 \implies h = 2R$.
+    \item Kết luận: Lon hình trụ đạt hiệu quả tối đa khi chiều cao bằng đường kính đáy ($h = d$).
+\end{itemize}
+
+\subsection*{2.7. Bài toán chuyển động trong vật lý}
+Phân tích chi tiết động học vật thể qua công cụ đạo hàm:
+\begin{itemize}
+    \item Quãng đường: $s(t)$
+    \item Vận tốc tức thời: $v(t) = s'(t)$
+    \item Gia tốc tức thời: $a(t) = v'(t) = s''(t)$
+\end{itemize}
+
+\subsection*{2.8. Bài toán tối ưu trong nông nghiệp}
+Giải quyết bài toán "Quy luật sinh lợi giảm dần" cho năng suất cây trồng $Y$ phụ thuộc vào đầu vào $x$:
+\begin{equation}
+    Y(x) = -ax^2 + bx + c \quad (a > 0)
+\end{equation}
+Điểm đạt đỉnh năng suất:
+\begin{equation}
+    x_{\text{opt}} = \frac{b}{2a}
+\end{equation}
+
+\subsection*{2.9. Bài toán tối ưu trong đời sống}
+Giải quyết bài toán hình học không gian liên quan đến vật cản thực tế, ví dụ thanh gỗ qua hành lang vuông góc rộng $a$ và $b$:
+\begin{equation}
+    L(\alpha) = \frac{a}{\sin \alpha} + \frac{b}{\cos \alpha}
+\end{equation}
+
+\subsection*{2.10. Tổng hợp và hoàn thiện mô hình}
+Quy trình tư duy chuẩn hóa gồm 4 bước:
+\begin{enumerate}
+    \item Mô hình hóa thực tiễn (chọn ẩn, miền giá trị).
+    \item Xây dựng hàm mục tiêu $f(x)$ một biến.
+    \item Khảo sát giải tích (tính đạo hàm, giải $f'(x) = 0$, lập bảng biến thiên).
+    \item Kiểm định thực tiễn đối chiếu kết quả.
+\end{enumerate}
+
+\newpage
+
+% ========================================================
+% CHƯƠNG 3: TUYỂN TẬP BÀI TOÁN THỰC TẾ
+% ========================================================
+\begin{center}
+{\Large\bfseries CHƯƠNG 3}
+
+\vspace{0.4cm}
+
+{\Large\bfseries MỘT SỐ BÀI TOÁN THỰC TẾ VÀ LỜI GIẢI CHI TIẾT}
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{Câu 1.} Máng xối nước mưa được làm bằng một miếng nhôm rộng $30\text{ cm}$. Sau khi đánh dấu chiều dài $10\text{ cm}$ từ mỗi cạnh, miếng nhôm được gập lên một góc $\theta$ (xem hình vẽ). Diện tích $S\ (\text{cm}^2)$ của mặt cắt ngang của máng được biểu thị dưới dạng một hàm số của $\theta$ như sau:
+\begin{equation*}
+    S = S(\theta) = 100\sin\theta(\cos\theta + 1); \ 0 \le \theta \le \frac{\pi}{2}
+\end{equation*}
+
+Tìm góc $\theta$ để diện tích $S$ là lớn nhất (góc $\theta$ này sẽ cho phép nước chảy nhiều nhất qua máng xối).
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1 (Xây dựng mô hình):} Xác định hàm mục tiêu diện tích $S(\theta)$ chứa cả $\sin$ và $\cos$ trên đoạn cho trước.
+    \item \textbf{Bước 2 (Chuyển đổi đại số):} Tính đạo hàm của tích $S'(\theta)$, sau đó sử dụng hằng đẳng thức $\sin^2\theta = 1 - \cos^2\theta$ để quy đồng về một ẩn duy nhất là $\cos\theta$.
+    \item \textbf{Bước 3 (Giải hệ quả):} Đặt ẩn phụ $t = \cos\theta$ ($t \in [0; 1]$) để đưa về phương trình bậc hai, tìm nghiệm và đối chiếu điều kiện biên.
+\end{itemize}
+\subsection*{Lời giải}
+Ta có: 
+\begin{equation*}
+    S(\theta) = 100\sin\theta\cos\theta + 100\sin\theta = 50\sin 2\theta + 100\sin\theta, \ 0 \le \theta \le \frac{\pi}{2}
+\end{equation*}
+Suy ra, 
+\begin{equation*}
+    S'(\theta) = 100\cos 2\theta + 100\cos\theta = 100(\cos 2\theta + \cos\theta)
+\end{equation*}
+Do đó trên đoạn $\left[0; \frac{\pi}{2}\right]$, $S'(\theta) = 0 \iff \theta = \frac{\pi}{3}$. Mặt khác, ta có: $S(0) = 0, \ S\left(\frac{\pi}{2}\right) = 100, \ S\left(\frac{\pi}{3}\right) = 75\sqrt{3}$.
+
+Vậy để diện tích $S$ của mặt cắt ngang của máng lớn nhất thì góc uốn $\theta$ phải bằng $\dfrac{\pi}{3}$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Câu 2.} Một công ty ước tính rằng tổng lợi nhuận $P$ (nghìn đồng) cho một sản phẩm có thể được mô hình hoá bằng hàm số $P(x) = -x^3 + 450x^2 + 52500x$, trong đó $x$ là số lượng đơn vị sản phẩm đó được sản xuất và bán ra. Mức sản xuất nào sẽ mang lại lợi nhuận lớn nhất? Khi đó lợi nhuận lớn nhất là bao nhiêu?
+\begin{itemize}
+    \item \textbf{Bước 1:} Xác định hàm mục tiêu $P(x)$ là đa thức bậc ba trên khoảng mở $(0; +\infty)$.
+    \item \textbf{Bước 2:} Tính đạo hàm bậc nhất $P'(x)$ và giải phương trình $P'(x) = 0$ để tìm các điểm tới hạn.
+    \item \textbf{Bước 3:} Loại bỏ nghiệm âm (do điều kiện kinh tế $x > 0$) và dùng bảng biến thiên để xác định điểm cực đại.
+\end{itemize}
+\subsection*{Lời giải}
+Xét hàm số $P(x) = -x^3 + 450x^2 + 52500x, \ x \ge 0$.
+
+Ta có: $P'(x) = -3x^2 + 900x + 52500$; $P'(x) = 0 \iff x = 350$ (do $x \ge 0$);
+
+$P(0) = 0, \ P(350) = 30625000$ và $\lim_{x \to +\infty} P(x) = -\infty$.
+
+Bảng biến thiên của hàm số:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+$x$ & $0$ & & $350$ & & $+\infty$ \\ \hline
+$P'$ & & $+$ & $0$ & $-$ & \\ \hline
+$P$ & & & $30625000$ & & \\
+ & $0$ & $\nearrow$ & & $\searrow$ & \\
+ & & & & & $-\infty$ \\ \hline
+\end{tabular}
+\end{center}
+
+Do đó, $\max_{[0; +\infty)} P(x) = P(350) = 30625000$.
+
+Vậy để đạt lợi nhuận lớn nhất thì công ty đó cần sản xuất và bán ra $350$ đơn vị sản phẩm.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Câu 3.} Một chất điểm chuyển động theo phương ngang có tọa độ xác định bởi phương trình $x(t) = -0,01t^4 + 0,12t^3 + 0,3t^2 + 0,5$ với $x$ tính bằng mét, $t$ tính bằng giây, $0 \le t \le 6$. Tìm thời điểm mà tốc độ của chất điểm lớn nhất.
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1:} Lập hàm vận tốc $v(t)$ bằng đạo hàm bậc nhất của phương trình tọa độ: $v(t) = x'(t)$.
+    \item \textbf{Bước 2:} Khảo sát tốc độ bằng cách tính đạo hàm bậc hai (chính là gia tốc $v'(t)$).
+    \item \textbf{Bước 3:} Xét nghiệm phương trình gia tốc bằng 0 để kết luận tính đơn điệu và tìm giá trị lớn nhất tại biên.
+\end{itemize}
+\subsection*{Lời giải}
+$v(t) = x'(t) = -0,04t^3 + 0,36t^2 + 0,6t$
+
+$\max_{[0;6]} v(t) = v(6) = 7,92\ (\text{m/s})$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Câu 4.} Từ một miếng bìa hình vuông có cạnh bằng $12\text{ cm}$, người ta cắt bỏ đi bốn hình vuông nhỏ có cạnh bằng $x\ (\text{cm})$ ở bốn góc và gập lại thành một hình hộp không nắp. Tìm $x$ để thể tích của hình hộp là lớn nhất.
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1:} Đặt ẩn chiều cao phần cắt là $x$ với điều kiện $0 < x < 6$.
+    \item \textbf{Bước 2:} Lập hàm thể tích $V(x) = \text{Diện tích đáy} \times \text{Chiều cao}$ và khai triển thành đa thức.
+    \item \textbf{Bước 3:} Tính đạo hàm, tìm điểm tới hạn và lập bảng biến thiên.
+\end{itemize}
+\subsection*{Lời giải}
+Thể tích chiếc hộp là $V = x(12 - 2x)^2$ với $0 < x < 6$.
+
+$\max_{[0;6]} V = V(2) = 128\ (\text{cm}^3)$. Vậy $x = 2\text{ cm}$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\textbf{Câu 5.} Ho ép khí quản co lại, ảnh hưởng đến tốc độ của không khí đi vào khí quản. Tốc độ của không khí đi vào khí quản khi ho được cho bởi công thức: $V = k(R - r)r^2, 0 \le r < R$, trong đó $k$ là hằng số, $R$ là bán kính bình thường của khí quản, $r$ là bán kính khí quản khi ho \textit{(Nguồn: R. Larson and B. Edwards, Calculus 10e, Cengage 2014)}. Hỏi bán kính của khí quản khi ho bằng bao nhiêu thì tốc độ của không khí đi vào khí quản là lớn nhất?
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1:} Khai triển biểu thức hàm số $V(r)$ thành dạng đa thức.
+    \item \textbf{Bước 2:} Tính đạo hàm $V'(r)$ theo biến số $r$ (coi $k, R$ là hằng số).
+    \item \textbf{Bước 3:} Giải phương trình $V'(r) = 0$ để tìm điểm cực đại.
+\end{itemize}
+\subsection*{Lời giải}
+Xét hàm số $V = k(R - r)r^2, 0 \le r < R$.
+
+Ta có $V'(r) = k \cdot (-r^2) + k(R - r) \cdot 2r = rk(2R - 3r)$. Khi đó trên nửa khoảng $[0; R)$, 
+\begin{equation*}
+    V'(r) = 0 \iff \begin{bmatrix} r = 0 \\ r = \dfrac{2}{3}R \end{bmatrix}
+\end{equation*}
+
+Bảng biến thiên của hàm số như sau:
+\begin{center}
+\begin{tabular}{|c|ccccc|}
+\hline
+$r$ & $0$ & & $\dfrac{2R}{3}$ & & $R$ \\ \hline
+$V'(r)$ & & $+$ & $0$ & $-$ & \\ \hline
+$V(r)$ & & & $\dfrac{4kR^3}{27}$ & & \\
+ & $0$ & $\nearrow$ & & $\searrow$ & \\
+ & & & & & $0$ \\ \hline
+\end{tabular}
+\end{center}
+
+Từ bảng biến thiên, ta thấy $\max_{[0; R)} V = \dfrac{4}{27}kR^3$ tại $r = \dfrac{2}{3}R$. 
+
+Vậy $r = \dfrac{2}{3}R$ thì tốc độ của không khí đi vào khí quản là lớn nhất.
+\textbf{Câu 6.}
+\begin{itemize}
+    \item Xe tải di chuyển với tốc độ $x$ dặm/giờ tiêu thụ nhiên liệu ở mức $\frac{1}{200}\left(\frac{2500}{x} + x\right)$ gallon/dặm. Giá nhiên liệu $3,6$ USD/gallon. Chi phí nhiên liệu $C(x)$ khi lái xe 200 dặm là:
+    \[C(x) = 3,6 \cdot \left(\frac{2500}{x} + x\right), \quad x \in [10; 75]\]
+    \item \textbf{Yêu cầu:} 
+    \begin{itemize}
+        \item[a)] Lái xe ở tốc độ nào thì chi phí nhiên liệu ít nhất?
+        \item[b)] Nếu tính thêm tiền lương tài xế $28$ USD/giờ, tốc độ để tổng chi phí nhỏ nhất là bao nhiêu?
+    \end{itemize}
+\end{itemize}
+
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Phần a:} Khảo sát hàm chi phí nhiên liệu $C(x)$ trên đoạn $[10; 75]$ bằng đạo hàm.
+    \item \textbf{Phần b:} Lập hàm tổng chi phí $T(x) = C(x) + \text{Tiền lương}$ (với tiền lương theo giờ quy đổi thành $\frac{200}{x} \cdot 28 = \frac{5600}{x}$), sau đó tìm giá trị nhỏ nhất trên đoạn.
+\end{itemize}
+
+\subsection{Lời giải chi tiết}
+\begin{itemize}
+    \item a) Chi phí nhiên liệu ít nhất\textbf{:}
+    \begin{itemize}
+        \item $C'(x) = 3,6 \left(-\frac{2500}{x^2} + 1\right)$. Cho $C'(x) = 0 \implies x = 50$.
+        \item So sánh giá trị: $C(10) = 936$, $C(50) = 360$, $C(75) = 390$ (USD). 
+        \item Kết luận a\textbf{:} Tốc độ tối ưu là \textbf{$50$ }dặm/giờ\textbf{.}
+    \end{itemize}
+    \item b) Tổng chi phí nhỏ nhất\textbf{:}
+    \begin{itemize}
+        \item Hàm tổng chi phí: $T(x) = C(x) + \frac{5600}{x} = 3,6x + \frac{14600}{x}$ với $x \in [10; 75]$.
+        \item Đạo hàm: $T'(x) = 3,6 - \frac{14600}{x^2}$. Cho $T'(x) = 0 \implies x \approx 63,68$ (dặm/giờ).
+        \item Kết luận b\textbf{:} Tốc độ để tổng chi phí nhỏ nhất là khoảng \textbf{$63,68$ }dặm/giờ.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Câu 7.}
+\begin{itemize}
+    \item Mương dẫn nước hình chữ nhật (chiều rộng đáy $x$, chiều cao $y$) có diện tích $S$ xác định. Mương có dạng "thủy động học" nếu chu vi ướt $\ell$ nhỏ nhất.
+    \item \textbf{Yêu cầu:} Xác định kích thước mương để đạt dạng thủy động học.
+\end{itemize}
+
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1:} Dùng công thức diện tích $S = x \cdot y$ để biểu diễn $y = \frac{S}{x}$.
+    \item \textbf{Bước 2:} Xây dựng hàm chu vi ướt $\ell(x) = x + 2y = x + \frac{2S}{x}$.
+    \item \textbf{Bước 3:} Áp dụng bất đẳng thức Cô-si (hoặc đạo hàm) để tìm giá trị nhỏ nhất.
+\end{itemize}
+
+\subsection{Lời giải chi tiết}
+\begin{itemize}
+    \item Xét hàm chu vi ướt: $\ell(x) = x + \frac{2S}{x}$ với $x > 0$.
+    \item Theo bất đẳng thức Cô-si:
+    \[\ell(x) = x + \frac{2S}{x} \ge 2\sqrt{x \cdot \frac{2S}{x}} = 2\sqrt{2S}\]
+    \item Dấu ``$=$'' xảy ra khi $x = \frac{2S}{x} \iff x^2 = 2S \implies x = \sqrt{2S}$.
+    \item Suy ra chiều cao $y = \frac{S}{x} = \frac{x}{2} \implies x = 2y$.
+    \item \textbf{Kết luận:} Chiều rộng đáy mương phải gấp đôi chiều cao mực nước ($x = 2y$).
+\end{itemize}
+
+\textbf{Câu 8.}
+\begin{itemize}
+    \item Nhiệt độ phòng ở phút thứ $t$ khi bật hệ thống làm mát:
+    \[T(t) = -0,008t^3 - 0,16t + 28, \quad t \in [1; 10]\]
+    \item \textbf{Yêu cầu:} Tìm nhiệt độ thấp nhất trong phòng đạt được trong thời gian $10$ phút đó.
+\end{itemize}
+
+\subsection{Ý tưởng giải chi tiết}
+\begin{itemize}
+    \item \textbf{Bước 1:} Xác định bài toán tìm giá trị nhỏ nhất của hàm số bậc ba trên đoạn đóng $[1; 10]$.
+    \item \textbf{Bước 2:} Tính đạo hàm $T'(t)$ để xét tính đơn điệu.
+    \item \textbf{Bước 3:} Đánh giá dấu đạo hàm và kết luận giá trị tại đầu mút.
+\end{itemize}
+
+\subsection{Lời giải chi tiết}
+\begin{enumerate}
+    \item Tính đạo hàm: 
+    \[T'(t) = -0,024t^2 - 0,16\]
+    \item Xét tính đơn điệu: Vì $T'(t) < 0$ với mọi $t \in [1; 10]$, hàm số nghịch biến hoàn toàn. Nhiệt độ phòng sẽ giảm liên tục và đạt mức thấp nhất tại phút thứ $10$.
+    \item Tính toán giá trị:
+    \[T(10) = -0,008(10)^3 - 0,16(10) + 28 = -8 - 1,6 + 28 = 18,4^\circ\text{C}\]
+    \item Kết luận: Nhiệt độ thấp nhất trong phòng đạt được là \textbf{$18,4^\circ\text{C}$}.
+\end{enumerate}
+
+\vspace{1cm}
+
+% ========================================================
+% TÀI LIỆU THAM KHẢO
+% ========================================================
+\begin{center}
+{\Large\bfseries TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+    \item TOANMATH.com (2024), \emph{Các dạng bài tập giá trị lớn nhất và giá trị nhỏ nhất của hàm số toán 12 KNTTVCS}, truy cập từ \url{https://toanmath.com/2024/07/cac-dang-bai-tap-gia-tri-lon-nhat-va-gia-tri-nho-nhat-cua-ham-so-toan-12-knttvcs.html}.
+    \item Tailieuonthi.org, \emph{Toán thực tế chuyên đề giá trị lớn nhất nhỏ nhất hàm số}, truy cập từ \url{https://tailieuonthi.org/toan-thuc-te-chuyen-de-gia-tri-lon-nhat-nho-nhat-ham-so/}.
+    \item TOANMATH.com (2025), \emph{Tổng hợp toán thực tế đúng sai và trả lời ngắn chủ đề GTLN GTNN của hàm số}, truy cập từ \url{https://toanmath.com/2025/07/tong-hop-toan-thuc-te-dung-sai-va-tra-loi-ngan-chu-de-gtln-gtnn-cua-ham-so.html}.
+    \item Th.S Đặng Việt Đông (Trường THPT Nho Quan A) sưu tầm và biên soạn, \emph{Tài liệu ôn tập toán lớp 12 theo chuyên đề}.
+    \item https://thuvienhoclieu.com/45-bai-toan-thuc-te-bai-gia-tri-lon-nhat-va-nho-nhat-cua-ham-so-lop-12-giai-chi-tiet/
+\end{enumerate}
+
+\end{document}
