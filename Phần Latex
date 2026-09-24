@@ -27,14 +27,51 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-% ========================================================
-% BẮT ĐẦU TÀI LIỆU
-% ========================================================
-\begin{document}
 
-% ========================================================
-% TRANG LỜI CẢM ƠN
-% ========================================================
+\begin{document}
+\begin{titlepage}
+\centering
+{\bfseries\large TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ\par}
+\vspace{0.5cm}
+{\large KHOA TOÁN \\}
+
+\vspace{3cm}
+
+{\scshape\Large DỰ ÁN \par}
+\vspace{1cm}
+
+{\rule{10cm}{0.4pt}\par}
+\vspace{1cm}
+
+{\bfseries\LARGE\ GIÁ TRỊ LỚN NHẤT VÀ GIÁ TRỊ NHỎ NHẤT CỦA HÀM SỐ\\[0.5cm] \Large Ứng dụng bài toán tối ưu hóa thực tiễn\par}
+
+\vspace{1cm}
+{\rule{10cm}{0.4pt}\par}
+
+\vspace{3cm}
+
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushleft} \large
+\emph{Giảng viên hướng dẫn:}\\[0.2cm]
+Thầy \textbf{Nguyễn Đăng Minh Phúc}
+\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{flushright} \large
+\emph{Người thực hiện:}\\[0.2cm]
+\textbf{NGUYỄN THỊ QUỲNH NHƯ} \\
+LỚP: [TOÁN 4A]
+\end{flushright}
+\end{minipage}
+
+\vfill
+
+{\large HUẾ, 2026\par}
+\end{titlepage}
+
+
 \begin{center}
 {\Large\bfseries LỜI CẢM ƠN}
 \end{center}
