@@ -1,24 +1,12 @@
 \documentclass[12pt,a4paper]{article}
-
-% ========================================================
-% TIẾNG VIỆT VÀ MÃ HÓA (DÙNG CHUNG MỘT PREAMBLE)
-% ========================================================
 \usepackage[utf8]{inputenc}
 \usepackage[T5]{fontenc}
 \usepackage[vietnamese]{babel}
-
-% ========================================================
-% TOÁN HỌC VÀ TIỆN ÍCH
-% ========================================================
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{url}
-
-% ========================================================
-% KHỔ GIẤY VÀ LỀ
-% ========================================================
 \usepackage[
     a4paper,
     left=3cm,
@@ -27,18 +15,12 @@
     bottom=2.5cm
 ]{geometry}
 
-% ========================================================
-% GIÃN DÒNG VÀ THỤT ĐẦU DÒNG
-% ========================================================
 \usepackage{setspace}
 \onehalfspacing
 
 \usepackage{indentfirst}
 \setlength{\parindent}{1.25cm}
 
-% ========================================================
-% ĐÁNH SỐ TRANG VÀ TIÊU ĐỀ
-% ========================================================
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -74,6 +56,11 @@ Em xin chân thành cảm ơn Thầy!
 \vspace{1cm}
 \begin{flushright}
 
+\begin{tabular}{c}
+\textbf{Người thực hiện} \\
+\vspace{1.5cm} \\
+(Nguyễn Thị Quỳnh Như)
+\end{tabular}
 \end{flushright}
 
 \newpage
